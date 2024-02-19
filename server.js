@@ -1,10 +1,16 @@
 const app = require('./app.js')
 const http = require('http')
+const logger = require('./src/core/logger')
 
 const onListening = () => {
     const addr = server.address();
     const bind = typeof addr === "string" ? "pipe " + addr : "PORT " + addr.port;
-    console.log(bind)
+     logger.log({
+       timestamp: new Date().toDateString(),
+       label: "server",
+       level: "info",
+       message: `this is running on ${bind}`,
+     });
 }
 
 const normalizePort = (val) => {

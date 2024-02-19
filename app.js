@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const routes = require('./src/routes.js')
 
 const app = express();
 
@@ -12,6 +13,8 @@ let d = new Date();
 app.get("/", (req, res) => {
     res.status(200).send(`Healty since ${d.toString()}`);
 })
+
+app.use("/imtiaz", routes);
 
 app.use("*", (req, res) => {
     res.send("NOT FOUND");
