@@ -1,6 +1,14 @@
 const router = require('express').Router();
 const logger = require('../core/logger');
 
+/*
+    Things to do
+    1. get all users
+    2. create user 
+    3. update user
+    4. update status user
+*/
+
 router.get('/',(req, res) => {
     logger.log({
     timestamp: new Date().toDateString(),
