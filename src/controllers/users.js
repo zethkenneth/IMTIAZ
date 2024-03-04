@@ -1,22 +1,18 @@
 const router = require('express').Router();
-const logger = require('../core/logger');
+const usersSevices = require('../services/users.js')
 
-// Things to do
+router.get('/', async (req, res) => {
+   const result = await usersSevices.getAllUsers();
+   return res.status(200).send(result)
+});
 
-//    1. get all users
-router.get('/',(req, res) => {
-    logger.log({
-    timestamp: new Date().toDateString(),
-    label: "server",
-    level: "info",
-    message: `GET API USERS`,
-    });
-    res.status(200).send("THIS IS A GET USER ROUTE")
+router.post('/', async (req, res) => {
+    const result = await usersSevices.addUser(req.body)
+    return res.status(200).send(result);
 })
 
-    // 2. create user 
-    // 3. update user
-    // 4. update status user
-    // 5. login
-
+router.put('/', async (req, res) => {
+    const result = await usersSevices.updateUser(req.body)
+    return res.status(200).send(result)
+})
 module.exports = router

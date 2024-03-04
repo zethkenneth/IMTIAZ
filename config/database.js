@@ -31,6 +31,8 @@ module.exports = pg;
     name VARCHAR(50),
     username VARCHAR(50),
     password VARCHAR(50),
+    userStatus VARCHAR(10),
+    lastLogin DATE,
     PRIMARY KEY(userId)
  );
 
@@ -61,4 +63,6 @@ module.exports = pg;
 
 INSERT INTO users (name, username, password) VALUES ('bob', 'bob123', 'bob123'), ('ana', 'ana1999', 'anabeauty');
 
+ALTER TABLE users ADD userStatus VARCHAR(10);
+ALTER TABLE users ADD lastLogin DATE;
 */ 
